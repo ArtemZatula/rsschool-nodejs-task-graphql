@@ -6,6 +6,8 @@ import { ProfileType } from "./types/profile.js";
 import { UUIDType } from "./types/uuid.js";
 import { UsersQuery } from "./queries/users.js";
 import { UserQuery } from "./queries/user.js";
+import { PostQuery } from "./queries/post.js";
+import { PostsQuery } from "./queries/posts.js";
 
 export const RootQueryType = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -17,8 +19,8 @@ export const RootQueryType = new GraphQLObjectType({
     },
     users: UsersQuery,
     user: UserQuery,
-    posts: { type: new GraphQLList(new GraphQLNonNull(PostType)) },
-    post: { type: PostType, args: { id: { type: new GraphQLNonNull(UUIDType) } } },
+    posts: PostsQuery,
+    post: PostQuery,
     profiles: { type: new GraphQLList(new GraphQLNonNull(ProfileType)) },
     profile: { type: ProfileType, args: { id: { type: new GraphQLNonNull(UUIDType) } } },
   },
