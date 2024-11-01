@@ -24,11 +24,12 @@ const plugin: FastifyPluginAsyncTypebox = async (fastify) => {
         //  }
       // }
 
-      return graphql({
-        schema,
-        source: query,
-        variableValues: variables,
-      });
+        return graphql({
+          schema,
+          source: query,
+          variableValues: variables,
+          contextValue: { prisma },
+        });
     },
   });
 };
