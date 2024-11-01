@@ -3,9 +3,9 @@ import { UUIDType } from "./uuid.js";
 import { ProfileType } from "./profile.js";
 import { PostType } from "./post.js";
 
-const UserType = new GraphQLObjectType({
+export const UserType = new GraphQLObjectType({
   name: 'User',
-  fields: () => ({
+  fields: {
     id: { type: new GraphQLNonNull(UUIDType) },
     name: { type: new GraphQLNonNull(GraphQLString) },
     balance: { type: new GraphQLNonNull(GraphQLFloat) },
@@ -13,5 +13,5 @@ const UserType = new GraphQLObjectType({
     posts: { type: new GraphQLList(new GraphQLNonNull(PostType))},
     userSubscribedTo: { type: new GraphQLList(new GraphQLNonNull(UserType)) },
     subscribedToUser: { type: new GraphQLList(new GraphQLNonNull(UserType)) },
-  }),
+  },
 });
