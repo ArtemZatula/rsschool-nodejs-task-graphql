@@ -1,5 +1,5 @@
 import { GraphQLList, GraphQLNonNull } from "graphql";
-import { ProfileType } from "../types/profile.js";
+import { ProfileType } from "../types/profile.type.js";
 
 export const ProfilesQuery = {
   type: new GraphQLList(new GraphQLNonNull(ProfileType)),

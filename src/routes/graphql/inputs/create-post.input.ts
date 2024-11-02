@@ -3,7 +3,7 @@ import {
   GraphQLNonNull,
   GraphQLString
 } from "graphql";
-import { UUIDType } from "../types/uuid.js";
+import { UUIDType } from "../types/uuid.type.js";
 
 export const CreatePostInput = new GraphQLInputObjectType({
   name: 'CreatePostInput',

@@ -3,7 +3,7 @@ import {
   GraphQLInputObjectType,
   GraphQLInt
 } from "graphql";
-import { MemberTypeIdEnum } from "../types/member.js";
+import { MemberTypeIdEnum } from "../types/member.type.js";
 
 export const ChangeProfileInput = new GraphQLInputObjectType({
   name: 'ChangeProfileInput',

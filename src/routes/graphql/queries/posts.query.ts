@@ -1,5 +1,5 @@
 import { GraphQLList, GraphQLNonNull } from "graphql";
-import { PostType } from "../types/post.js";
+import { PostType } from "../types/post.type.js";
 
 export const PostsQuery =  {
   type: new GraphQLList(new GraphQLNonNull(PostType)),

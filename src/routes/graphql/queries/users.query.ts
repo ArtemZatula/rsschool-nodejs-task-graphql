@@ -1,5 +1,5 @@
 import { GraphQLList, GraphQLNonNull } from "graphql";
-import { UserType } from "../types/user.js";
+import { UserType } from "../types/user.type.js";
 
 export const UsersQuery = {
   type: new GraphQLList(new GraphQLNonNull(UserType)),

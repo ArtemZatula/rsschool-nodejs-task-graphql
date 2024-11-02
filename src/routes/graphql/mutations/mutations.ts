@@ -1,14 +1,14 @@
 import { GraphQLNonNull, GraphQLObjectType, GraphQLString } from "graphql";
-import { UserType } from "./types/user.js";
-import { PostType } from "./types/post.js";
-import { ProfileType } from "./types/profile.js";
-import { UUIDType } from "./types/uuid.js";
-import { CreateUserInput } from "./inputs/create-user.js";
-import { CreateProfileInput } from "./inputs/create-profile.js";
-import { CreatePostInput } from "./inputs/create-post.js";
-import { ChangePostInput } from "./inputs/change-post.js";
-import { ChangeProfileInput } from "./inputs/change-profile.js";
-import { ChangeUserInput } from "./inputs/change-user.js";
+import { UserType } from "../types/user.type.js";
+import { PostType } from "../types/post.type.js";
+import { ProfileType } from "../types/profile.type.js";
+import { UUIDType } from "../types/uuid.type.js";
+import { CreateUserInput } from "../inputs/create-user.input.js";
+import { CreateProfileInput } from "../inputs/create-profile.input.js";
+import { CreatePostInput } from "../inputs/create-post.input.js";
+import { ChangePostInput } from "../inputs/change-post.input.js";
+import { ChangeProfileInput } from "../inputs/change-profile.input.js";
+import { ChangeUserInput } from "../inputs/change-user.input.js";
 
 export const Mutations = new GraphQLObjectType({
   name: 'Mutations',

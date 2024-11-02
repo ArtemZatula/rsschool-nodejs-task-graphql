@@ -1,20 +1,20 @@
 import { GraphQLNonNull } from "graphql";
-import { ProfileType } from "../types/profile.js";
-import { UUIDType } from "../types/uuid.js";
+import { PostType } from "../types/post.type.js";
+import { UUIDType } from "../types/uuid.type.js";
 
-export const ProfileQuery = {
-  type: ProfileType,
+export const PostQuery = {
+  type: PostType,
   args: { id: { type: new GraphQLNonNull(UUIDType) } },
   resolve: async (_parent, args, context) => {
     const { id } = args;
     try {
-      const profile = await context.prisma.profile.findUnique({
+      const post = await context.prisma.post.findUnique({
         where: { id },
       });
-      if (profile === null) {
+      if (post === null) {
         throw context.httpErrors.notFound();
       }
-      return profile;
+      return post;
     } catch (error) {
       throw new Error("Failed to fetch posts");
     }

@@ -1,6 +1,6 @@
 import { GraphQLNonNull } from "graphql";
-import { UserType } from "../types/user.js";
-import { UUIDType } from "../types/uuid.js";
+import { UserType } from "../types/user.type.js";
+import { UUIDType } from "../types/uuid.type.js";
 
 export const UserQuery = {
   type: UserType,
