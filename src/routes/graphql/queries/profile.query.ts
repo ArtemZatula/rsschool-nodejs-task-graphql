@@ -7,16 +7,8 @@ export const ProfileQuery = {
   args: { id: { type: new GraphQLNonNull(UUIDType) } },
   resolve: async (_parent, args, context) => {
     const { id } = args;
-    try {
-      const profile = await context.prisma.profile.findUnique({
-        where: { id },
-      });
-      if (profile === null) {
-        throw context.httpErrors.notFound();
-      }
-      return profile;
-    } catch (error) {
-      throw new Error("Failed to fetch posts");
-    }
+    return await context.prisma.profile.findUnique({
+      where: { id },
+    });
   }
 }

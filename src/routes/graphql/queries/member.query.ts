@@ -6,13 +6,8 @@ export const MemberQuery = {
   args: {
     id: { type: new GraphQLNonNull(MemberTypeIdEnum) }
   },
-  resolve: async (_, { id }, context) => {
-    const memberType = await context.prisma.memberType.findUnique({
+  resolve: async (_, { id }, context) => 
+    await context.prisma.memberType.findUnique({
       where: { id },
-    });
-    if (memberType === null) {
-      throw context.httpErrors.notFound();
-    }
-    return memberType;
-  }
+    })
 }
