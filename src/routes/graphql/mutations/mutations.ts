@@ -1,28 +1,29 @@
-import { GraphQLNonNull, GraphQLObjectType, GraphQLString } from "graphql";
-import { UserType } from "../types/user.type.js";
-import { PostType } from "../types/post.type.js";
-import { ProfileType } from "../types/profile.type.js";
-import { UUIDType } from "../types/uuid.type.js";
-import { CreateUserInput } from "../inputs/create-user.input.js";
-import { CreateProfileInput } from "../inputs/create-profile.input.js";
-import { CreatePostInput } from "../inputs/create-post.input.js";
-import { ChangePostInput } from "../inputs/change-post.input.js";
-import { ChangeProfileInput } from "../inputs/change-profile.input.js";
-import { ChangeUserInput } from "../inputs/change-user.input.js";
+import { GraphQLObjectType } from "graphql";
+import { CreateUser } from "./create-user.mutation.js";
+import { CreateProfile } from "./create-profile.mutation.js";
+import { CreatePost } from "./create-post.mutation.js";
+import { ChangePost } from "./change-post.mutation.js";
+import { ChangeUser } from "./change-user.mutation.js";
+import { ChangeProfile } from "./change-profile.mutation.js";
+import { DeleteUser } from "./delete-user.mutation.js";
+import { DeletePost } from "./delete-post.mutation.js";
+import { DeleteProfile } from "./delete-profile.mutation.js";
+import { SubscribeTo } from "./subscribe-to.mutation.js";
+import { UnsubscribeFrom } from "./unsubscribe-from.mutation.js";
 
 export const Mutations = new GraphQLObjectType({
   name: 'Mutations',
   fields: {
-    createUser: { type: UserType, args: { dto: { type: new GraphQLNonNull(CreateUserInput) } } },
-    createProfile: { type: ProfileType, args: { dto: { type: new GraphQLNonNull(CreateProfileInput) } } },
-    createPost: { type: PostType, args: { dto: { type: new GraphQLNonNull(CreatePostInput) } } },
-    changePost: { type: PostType, args: { id: { type: new GraphQLNonNull(UUIDType) }, dto: { type: new GraphQLNonNull(ChangePostInput) } } },
-    changeProfile: { type: ProfileType, args: { id: { type: new GraphQLNonNull(UUIDType) }, dto: { type: new GraphQLNonNull(ChangeProfileInput) } } },
-    changeUser: { type: UserType, args: { id: { type: new GraphQLNonNull(UUIDType) }, dto: { type: new GraphQLNonNull(ChangeUserInput) } } },
-    deleteUser: { type: new GraphQLNonNull(GraphQLString), args: { id: { type: new GraphQLNonNull(UUIDType) } } },
-    deletePost: { type: new GraphQLNonNull(GraphQLString), args: { id: { type: new GraphQLNonNull(UUIDType) } } },
-    deleteProfile: { type: new GraphQLNonNull(GraphQLString), args: { id: { type: new GraphQLNonNull(UUIDType) } } },
-    subscribeTo: { type: new GraphQLNonNull(GraphQLString), args: { userId: { type: new GraphQLNonNull(UUIDType) }, authorId: { type: new GraphQLNonNull(UUIDType) } } },
-    unsubscribeFrom: { type: new GraphQLNonNull(GraphQLString), args: { userId: { type: new GraphQLNonNull(UUIDType) }, authorId: { type: new GraphQLNonNull(UUIDType) } } },
+    createUser: CreateUser,
+    createProfile: CreateProfile,
+    createPost: CreatePost,
+    changePost: ChangePost,
+    changeProfile: ChangeProfile,
+    changeUser: ChangeUser,
+    deleteUser: DeleteUser,
+    deletePost: DeletePost,
+    deleteProfile: DeleteProfile,
+    subscribeTo: SubscribeTo,
+    unsubscribeFrom: UnsubscribeFrom,
   },
 });
