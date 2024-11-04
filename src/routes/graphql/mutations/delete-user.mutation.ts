@@ -2,7 +2,7 @@ import { GraphQLNonNull, GraphQLString } from "graphql"
 import { UUIDType } from "../types/uuid.type.js"
 
 export const DeleteUser = {
-  type: new GraphQLNonNull(GraphQLString),
+  type: GraphQLString,
   args: {
     id: { type: new GraphQLNonNull(UUIDType) }
   },

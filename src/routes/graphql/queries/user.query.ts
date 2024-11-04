@@ -17,6 +17,8 @@ export const UserQuery = {
           },
         },
         posts: true,
+        userSubscribedTo: true,
+        subscribedToUser: true,
       },
     });
   },

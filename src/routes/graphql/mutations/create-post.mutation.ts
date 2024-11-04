@@ -2,7 +2,7 @@ import { GraphQLNonNull } from "graphql"
 import { PostType } from "../types/post.type.js"
 import { CreatePostInput } from "../inputs/create-post.input.js"
 
-export const CreatePost =  {
+export const CreatePost = {
   type: PostType,
   args: { 
     dto: { type: new GraphQLNonNull(CreatePostInput) }
